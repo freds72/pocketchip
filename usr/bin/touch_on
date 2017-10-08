@@ -1,0 +1,3 @@
+#!/bin/sh
+DISPLAY=:0
+xinput enable 1c25000.rtp

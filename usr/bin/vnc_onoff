@@ -1,0 +1,8 @@
+#!/bin/sh
+if [[ "$(ps -aux | grep x11vn[c])" ]]; then
+        echo "Stopping vnc server"
+        killall x11vnc
+else
+        echo "Starting vnc server on $(hostname -I)"
+        nohup x11vnc -nevershared -forever -rfbauth ~/.vnc/passwd &> /dev/null &
+fi

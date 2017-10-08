@@ -1,0 +1,13 @@
+[Unit]
+Description=hostapd service
+Wants=network-manager.service
+After=network-manager.service
+Wants=module-init-tools.service
+After=module-init-tools.service
+ConditionPathExists=/etc/hostapd.d/pocket_chip.conf
+
+[Service]
+ExecStart=/usr/sbin/hostapd /etc/hostapd.d/pocket_chip.conf
+
+[Install]
+WantedBy=multi-user.target
