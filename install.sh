@@ -1,5 +1,8 @@
 #!/bin/sh
-# apt-get install dnsmasq
+apt-get -y install dnsmasq
+apt-get -y install xinput
+apt-get -y install x11vnc
+
 if [ $# -eq 0 ]
 then
     echo "$0: No arguments supplied"
@@ -16,6 +19,7 @@ cp -r $SRC/usr/* /usr/.
 chmod +x /usr/bin/touch_on
 chmod +x /usr/bin/touch_off
 chmod +x /usr/bin/vnc_onoff
+cp -r usr/share/* /usr/share/
 echo "Setting up wireless access point..."
 cp $SRC/etc/dnsmasq.d/access_point.conf /etc/dnsmasq.d/access_point.conf
 cp $SRC/etc/network/interfaces /etc/network/interfaces
